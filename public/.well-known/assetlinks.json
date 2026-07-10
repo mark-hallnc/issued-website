@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.issuedinventory.issued_app",
+      "sha256_cert_fingerprints": ["14:76:14:FC:54:D3:C3:44:95:25:B3:70:E7:B1:FC:51:8C:48:23:E5:1D:99:83:C8:2E:24:02:60:54:25:7B:E5","YOUR_PLAY_APP_SIGNING_SHA256_FINGERPRINT"]
+    }
+  }
+]

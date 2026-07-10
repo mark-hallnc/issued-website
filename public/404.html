@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Issued | Redirecting</title>
+  </head>
+  <body>
+    <p>Redirecting to Issued...</p>
+    <script>
+      sessionStorage.setItem(
+        'issued.redirectPath',
+        window.location.pathname + window.location.search + window.location.hash,
+      )
+      window.location.replace('/')
+    </script>
+  </body>
+</html>
