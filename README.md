@@ -1,6 +1,6 @@
 # Issued Website
 
-Issued is the public website for the Issued mobile inventory management app. The site supports the product landing page, Google Play privacy requirements, public account and data deletion instructions, support information, and the invitation fallback route for future Android App Links.
+Issued is the public website and future browser-app entry point for the Issued mobile inventory management app. The root route is an email-only login screen for future web access, while public pages support Google Play privacy requirements, account and data deletion instructions, support information, and the invitation fallback route for future Android App Links.
 
 The production domain is:
 
@@ -66,15 +66,26 @@ GitHub Pages does not natively serve React Router routes such as `/privacy` or `
 
 If the domain is managed in Squarespace, point the DNS records for `issuedinventory.com` to GitHub Pages according to GitHub's current custom-domain instructions. Keep `public/CNAME` set to `issuedinventory.com`, then enable GitHub Pages for the repository and enforce HTTPS after DNS verification completes.
 
+## Login Screen
+
+The `/` route displays the future Issued web-app login screen. Authentication is not connected yet. The form validates an email address and shows a temporary status message from `submitWebLoginRequest` in `src/utils/webLoginRequest.js`, which can later be replaced with a Supabase authentication call.
+
+Public compliance and support routes remain available without login:
+
+- `/privacy`
+- `/data-deletion`
+- `/support`
+- `/invite`
+
 ## Logo Asset
 
-The header currently uses a temporary text-based Issued mark. When the final logo is ready, place it at:
+The Issued wordmark lives at:
 
 ```text
 public/Issued_name_icon.png
 ```
 
-Then replace the text mark in `src/components/Layout.jsx` with an image element that references `/Issued_name_icon.png`.
+React references it as `/Issued_name_icon.png` through `src/components/IssuedLogo.jsx`. The logo is used prominently on the login screen and at a smaller size in the public-page header.
 
 ## Privacy and Data Deletion Pages
 

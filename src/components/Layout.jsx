@@ -1,4 +1,5 @@
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
+import IssuedLogo from './IssuedLogo.jsx'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -9,17 +10,20 @@ const navLinks = [
 
 function Layout() {
   const currentYear = new Date().getFullYear()
+  const location = useLocation()
+
+  if (location.pathname === '/') {
+    return (
+      <main id="main-content">
+        <Outlet />
+      </main>
+    )
+  }
 
   return (
     <>
       <header className="site-header">
-        <Link className="brand" to="/" aria-label="Issued home">
-          {/* Replace this text mark with public/Issued_name_icon.png when the final logo is ready. */}
-          <span className="brand-mark" aria-hidden="true">
-            I
-          </span>
-          <span className="brand-name">Issued</span>
-        </Link>
+        <IssuedLogo className="header-logo" linked />
         <nav className="main-nav" aria-label="Main navigation">
           {navLinks.map((link) => (
             <NavLink
